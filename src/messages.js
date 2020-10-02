@@ -17,7 +17,7 @@ export default {
     viewSource: 'عرض الكود',
   },
   en: {
-    title: 'Thực phẩm chức năng',
+    title: 'THỰC PHẨM CHỨC NĂNG',
     sidebarTitle: 'Danh mục',
     description:
       'Dành cho phân khúc cao cấp thích hàng xịn, chất lượng thực sự tốt, mẫu mã đẹp. Click để tìm hiểu danh mục thực phẩm chức năng nhập khẩu chính hãng bởi cty Sức Khỏe Vàng.',
@@ -25,13 +25,12 @@ export default {
     components: 'Components',
     dropdown: 'Dropdown',
     submenu: 'Submenu',
-    multiLevel: 'Multi Level',
+    multiLevel: 'Danh mục sản phẩm',
     collapsed: 'Ẩn thanh điều hướng',
     rtl: 'Chuyển thanh điều hướng sang phải',
     image: 'Background image',
     new: 'NEW',
-    withPrefix: 'With Prefix',
-    withSuffix: 'With Suffix',
-    viewSource: 'View Source',
+    withPrefix: 'Giỏ hàng',
+    viewSource: 'Thiết kế bởi Webhiendai.net',
   },
 };

@@ -1,8 +1,8 @@
 import React from "react";
-import "./index.css";
 import InfiniteCarousel from "react-leaf-carousel";
+import Card from '../card'
 
-export default function App({array}) {
+export default function App({ products }) {
   return (
     <InfiniteCarousel
       breakpoints={[
@@ -30,9 +30,9 @@ export default function App({array}) {
       scrollOnDevice={true}
     >
       {
-          array.map((product,key)=><div>
-              
-          </div>)
+        products.map((product, key) => <div key={key}>
+          <Card product={product} />
+        </div>)
       }
     </InfiniteCarousel>
   );

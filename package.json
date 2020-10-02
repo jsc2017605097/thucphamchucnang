@@ -1,27 +1,32 @@
 {
   "name": "basic",
   "version": "0.1.0",
-  "homepage": "./",
+  "homepage": "http://jsc2017605097.github.io/thucphamchucnang",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "bootstrap": "^4.5.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-icons": "^3.10.0",
+    "react-icons": "^3.11.0",
     "react-intl": "^4.5.2",
     "react-leaf-carousel": "^2.0.3",
     "react-pro-sidebar": "^0.4.4",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
-    "react-switch": "^5.0.1"
+    "react-switch": "^5.0.1",
+    "reactstrap": "^8.6.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -39,6 +44,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^3.1.0",
     "node-sass": "^4.14.1"
   }
 }
