@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5613f46b565e063b3931913f12b8e5ac",
+    "revision": "e5fb6c9d3c6da2f8b5b8ae330688930f",
     "url": "/thucphamchucnang/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/thucphamchucnang/static/css/2.d9ad5f5c.chunk.css"
   },
   {
-    "revision": "773a727fb988cfe7bb58",
-    "url": "/thucphamchucnang/static/css/main.11327e48.chunk.css"
+    "revision": "a4f831aa2d88e47d4f8c",
+    "url": "/thucphamchucnang/static/css/main.7b0a1245.chunk.css"
   },
   {
     "revision": "c858598401de60071d71",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/thucphamchucnang/static/js/2.0a981a8a.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "773a727fb988cfe7bb58",
-    "url": "/thucphamchucnang/static/js/main.d9f67022.chunk.js"
+    "revision": "a4f831aa2d88e47d4f8c",
+    "url": "/thucphamchucnang/static/js/main.3f7824d7.chunk.js"
   },
   {
     "revision": "416f5ec4754481ba95c1",
