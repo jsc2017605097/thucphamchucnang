@@ -9,6 +9,7 @@ import { MdNewReleases } from 'react-icons/md'
 import { BsFillPeopleFill } from 'react-icons/bs'
 import {FiPhoneCall} from 'react-icons/fi'
 import FloadButton from './components/button_float'
+import Feedback from './client/feedback'
 
 const products = [
   {
@@ -118,6 +119,8 @@ const Main = ({
         </Route>
       </SwitchRoute>
 
+      <Feedback />
+ 
       <footer>
         <small>
           © 2020 made with <FaHeart style={{ color: 'red' }} /> by -{' '}

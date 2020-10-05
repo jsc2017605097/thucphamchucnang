@@ -1,0 +1,26 @@
+{
+    "title":"Khỏe store",
+    "description":"Dành cho phân khúc cao cấp thích hàng xịn, chất lượng thực sự tốt, mẫu mã đẹp. Click để tìm hiểu danh mục thực phẩm chức năng nhập khẩu chính hãng bởi cty Sức Khỏe Vàng.",
+    "feedback":[
+        {
+            "name":"Nguyễn Đỗ Cường",
+            "img":"https://github.com/jsc2017605097/vuadogo/blob/master/client/src/maykhach/feedback/khach_hang1.jpg?raw=true",
+            "content":"Sản phẩm này rất tốt"
+        },
+        {
+            "name":"Vũ Lan Anh",
+            "img":"https://github.com/jsc2017605097/vuadogo/blob/master/client/src/maykhach/feedback/khach_hang1.jpg?raw=true",
+            "content":"Sản phẩm này rất tốt"
+        },
+        {
+            "name":"Đặng Văn Phương",
+            "img":"https://github.com/jsc2017605097/vuadogo/blob/master/client/src/maykhach/feedback/khach_hang1.jpg?raw=true",
+            "content":"Sản phẩm này rất tốt"
+        },
+        {
+            "name":"Đặng Văn Đông",
+            "img":"https://github.com/jsc2017605097/vuadogo/blob/master/client/src/maykhach/feedback/khach_hang1.jpg?raw=true",
+            "content":"Sản phẩm này rất tốt"
+        }
+    ]    
+}

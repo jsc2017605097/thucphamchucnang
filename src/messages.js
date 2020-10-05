@@ -17,7 +17,7 @@ export default {
     viewSource: 'عرض الكود',
   },
   en: {
-    title: 'THỰC PHẨM CHỨC NĂNG',
+    title: 'KHỎE STORE',
     sidebarTitle: 'Danh mục',
     description:
       'Dành cho phân khúc cao cấp thích hàng xịn, chất lượng thực sự tốt, mẫu mã đẹp. Click để tìm hiểu danh mục thực phẩm chức năng nhập khẩu chính hãng bởi cty Sức Khỏe Vàng.',
