@@ -6,38 +6,9 @@ import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
 import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
-const img1 =
-    "https://github.com/jsc2017605097/vuadogo/blob/master/client/src/maykhach/feedback/khach_hang1.jpg?raw=true";
+import axios from 'axios'
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
-
-const tutorialSteps = [
-    {
-        content:
-            "Anh Phong: Chất lượng gỗ khá tốt, mình mua thấy ở đây giá cả hợp lí mà gỗ lại đẹp.",
-        img: img1
-    },
-    {
-        content:
-            "Anh Nam: Hỗ trợ nhiệt tình, hàng chất lượng, mình sẽ giới thiệu cho nhiều người biết đến VUA ĐỒ GỖ hơn.",
-        img: img1
-    },
-    {
-        content:
-            "Chị Hòa: Bây giờ mình mới biết đến VUA ĐỒ GỖ, thật tiếc vì không biết sớm hơn, chất lượng quá tốt, tư vấn nhiệt tình.",
-        img: img1
-    },
-    {
-        content:
-            "Chị Linh: Cửa hàng này nhiều đỗ gỗ sịn thật, chỉ muốn mua hết mang về thôi.",
-        img: img1
-    },
-    {
-        content:
-            "Chị Anh: Tôi hài lòng với sản phẩm ở đây, gỗ chất lượng tốt, thiết kế đẹp cho khách.",
-        img: img1
-    }
-];
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -49,6 +20,7 @@ function SwipeableTextMobileStepper() {
     const classes = useStyles();
     const theme = useTheme();
     const [activeStep, setActiveStep] = React.useState(0);
+    const [tutorialSteps, setTuto] = React.useState([])
     const maxSteps = tutorialSteps.length;
 
     const handleNext = () => {
@@ -63,6 +35,13 @@ function SwipeableTextMobileStepper() {
         setActiveStep(step);
     };
 
+    React.useEffect(() => {
+        axios({
+            method: "get",
+            url: "https://jsc2017605097.github.io/thucphamchucnang/data.json"
+        }).then(res => setTuto(res.data.feedback))
+
+    }, [])
     return (
         <div className={classes.root}>
             <AutoPlaySwipeableViews

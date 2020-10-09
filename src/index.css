@@ -13,6 +13,14 @@ body{
     align-items: center;
     justify-content: space-between;
 }
+.btn-toggle{
+    position: fixed;
+    z-index: 99;
+    right:25px;
+}
+.app main header h1{
+    transform: translateX(0px) !important;
+}
 .chude{
     background-color: #3f51b5 ;
     color: #FFFFFF;

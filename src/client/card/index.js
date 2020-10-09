@@ -10,6 +10,8 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Sale from '../sale'
 import './index.css'
+import { Link } from 'react-router-dom'
+
 const useStyles = makeStyles({
     root: {
         maxWidth: 345,
@@ -23,7 +25,7 @@ export default function MediaCard({ product }) {
     const classes = useStyles();
 
     return (
-        <Card className={classes.root +' myCard'}>
+        <Card className={classes.root + ' myCard'}>
             <CardActionArea>
                 <CardMedia
                     className={classes.media}
@@ -32,7 +34,7 @@ export default function MediaCard({ product }) {
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
-                        {product.title}
+                        {product.name}
                     </Typography>
                     <Typography variant="body2" color="textSecondary" component="p">
                         {product.description}
@@ -43,12 +45,15 @@ export default function MediaCard({ product }) {
                 </CardContent>
             </CardActionArea>
             <CardActions>
-                <Button size="small" color="primary">
-                    Chi tiết
-                </Button>
-                <Button size="small" color="primary">
+                <Link to='/product/1'>
+                    <Button size="small" color="primary" variant="outlined">
+                        Chi tiết
+                    </Button>
+                </Link>
+                <Button size="small" color="primary" variant="contained">
                     Mua hàng
                 </Button>
+
             </CardActions>
             <Sale value="-20%" />
         </Card>
