@@ -1,0 +1,15 @@
+.giohang a {
+    text-decoration: none;
+  }
+.tieptucmuahang {
+    color: #ffffff !important;
+}
+.tong_tien_dat_hang{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.pointer{
+    cursor: pointer;
+}
+  

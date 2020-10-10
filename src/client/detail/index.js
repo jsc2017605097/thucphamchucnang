@@ -4,7 +4,9 @@ import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import { Row, Col } from "reactstrap";
 import Button from "@material-ui/core/Button";
-import {useHistory} from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
+
+import { useDispatch } from 'react-redux'
 
 export default function Detail({ product }) {
     let images = [];
@@ -13,6 +15,7 @@ export default function Detail({ product }) {
     //     const y = document.getElementById("banner").scrollHeight + document.getElementById("vechungtoi").scrollHeight
     //     window.scrollTo(0, y)
     // }, [])
+    const dispatch = useDispatch()
 
     if (!product) {
         return (
@@ -31,6 +34,12 @@ export default function Detail({ product }) {
         });
     }
 
+    function xemGioHang() {
+        if (window.confirm("Đã thêm vào giỏ hàng. Chọn OK nếu muốn xem giỏ hàng")) {
+            history.push('/cart')
+        }
+    }
+
     return (
         <div style={{ marginTop: "20px" }}>
             <div
@@ -44,7 +53,7 @@ export default function Detail({ product }) {
                 }}
             >
                 <CgDetailsMore /> &nbsp; Chi tiết sản phẩm
-      </div>
+            </div>
             <div>
                 <Row>
                     <Col style={{ paddingTop: "10px" }} xs="12" sm="6" lg="6" xl="4">
@@ -53,17 +62,24 @@ export default function Detail({ product }) {
                     <Col style={{ paddingTop: "10px" }} xs="12" sm="6" lg="6" xl="8">
                         <h3>{product.name}</h3>
                         <p>{product.description}</p>
+                        <span style={{ color: "red", fontWeight: "bold" }}>
+                            {new Intl.NumberFormat().format(product.price)} VNĐ
+                        </span>
                         <div>
-                            <span style={{ color: "red", fontWeight: "bold" }}>
-                                {new Intl.NumberFormat().format(product.price)} VNĐ
-                            </span>
-                            &nbsp;
-                            <Button variant="contained" color="primary">
+                            <Button variant="contained" color="primary"
+                                onClick={() => {
+                                    dispatch({ type: "ADD_TO_CART", data: product });
+                                    xemGioHang()
+                                }}>
                                 Mua hàng
                             </Button>
                             &nbsp;
-                            <Button variant="outlined" color="primary" onClick={()=>history.goBack()}>
+                            <Button variant="outlined" color="primary" onClick={() => history.goBack()}>
                                 Trở về
+                            </Button>
+                            &nbsp;
+                            <Button variant="outlined" color="secondary" onClick={() => history.push('/cart')}>
+                                giỏ hàng
                             </Button>
                         </div>
                     </Col>

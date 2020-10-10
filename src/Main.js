@@ -1,99 +1,24 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
 import Switch from 'react-switch';
-import { FaHeart, FaBars,FaFacebookF } from 'react-icons/fa';
+import { FaHeart, FaBars, FaFacebookF } from 'react-icons/fa';
 import reactLogo from './images/logo.png';
 import { Switch as SwitchRoute, Route } from 'react-router-dom'
 import Carousel from './client/carousel'
 import { MdNewReleases } from 'react-icons/md'
 import { BsFillPeopleFill } from 'react-icons/bs'
-import {FiPhoneCall} from 'react-icons/fi'
+import { FiPhoneCall } from 'react-icons/fi'
 import FloadButton from './components/button_float'
 import Feedback from './client/feedback'
 import './index.css'
 import Detail from './client/detail'
+import Cart from './client/cart'
+import Footer from './client/footer'
+import Slide from './client/slide'
 
-const products = [
-  {
-    name: "Thuc pham chuc nang",
-    price: 100,
-    description: "Thuc pham chuc nang khong phai la thuoc, khong thay the thuoc chua benh.",
-    img:[
-      "https://ecogreen.com.vn/image/cache/catalog/product/eco-lic-500x500.jpg",
-      "https://ecogreen.com.vn/image/cache/catalog/product/eco-lic-500x500.jpg",
-      "https://ecogreen.com.vn/image/cache/catalog/product/eco-lic-500x500.jpg"
-    ]
-  },
-  {
-    name: "Thuc pham chuc nang",
-    price: 100,
-    description: "Thuc pham chuc nang khong phai la thuoc, khong thay the thuoc chua benh.",
-    img:[
-      "https://ecogreen.com.vn/image/cache/catalog/product/eco-lic-500x500.jpg",
-      "https://ecogreen.com.vn/image/cache/catalog/product/eco-lic-500x500.jpg",
-      "https://ecogreen.com.vn/image/cache/catalog/product/eco-lic-500x500.jpg"
-    ]
-  },
-  {
-    name: "Thuc pham chuc nang",
-    price: 100,
-    description: "Thuc pham chuc nang khong phai la thuoc, khong thay the thuoc chua benh.",
-    img:[
-      "https://ecogreen.com.vn/image/cache/catalog/product/eco-lic-500x500.jpg",
-      "https://ecogreen.com.vn/image/cache/catalog/product/eco-lic-500x500.jpg",
-      "https://ecogreen.com.vn/image/cache/catalog/product/eco-lic-500x500.jpg"
-    ]
-  },
-  {
-    name: "Thuc pham chuc nang",
-    price: 100,
-    description: "Thuc pham chuc nang khong phai la thuoc, khong thay the thuoc chua benh.",
-    img:[
-      "https://ecogreen.com.vn/image/cache/catalog/product/eco-lic-500x500.jpg",
-      "https://ecogreen.com.vn/image/cache/catalog/product/eco-lic-500x500.jpg",
-      "https://ecogreen.com.vn/image/cache/catalog/product/eco-lic-500x500.jpg"
-    ]
-  }, {
-    name: "Thuc pham chuc nang",
-    price: 100,
-    description: "Thuc pham chuc nang khong phai la thuoc, khong thay the thuoc chua benh.",
-    img:[
-      "https://ecogreen.com.vn/image/cache/catalog/product/eco-lic-500x500.jpg",
-      "https://ecogreen.com.vn/image/cache/catalog/product/eco-lic-500x500.jpg",
-      "https://ecogreen.com.vn/image/cache/catalog/product/eco-lic-500x500.jpg"
-    ]
-  },
-  {
-    name: "Thuc pham chuc nang",
-    price: 100,
-    description: "Thuc pham chuc nang khong phai la thuoc, khong thay the thuoc chua benh.",
-    img:[
-      "https://ecogreen.com.vn/image/cache/catalog/product/eco-lic-500x500.jpg",
-      "https://ecogreen.com.vn/image/cache/catalog/product/eco-lic-500x500.jpg",
-      "https://ecogreen.com.vn/image/cache/catalog/product/eco-lic-500x500.jpg"
-    ]
-  },
-  {
-    name: "Thuc pham chuc nang",
-    price: 100,
-    description: "Thuc pham chuc nang khong phai la thuoc, khong thay the thuoc chua benh.",
-    img:[
-      "https://ecogreen.com.vn/image/cache/catalog/product/eco-lic-500x500.jpg",
-      "https://ecogreen.com.vn/image/cache/catalog/product/eco-lic-500x500.jpg",
-      "https://ecogreen.com.vn/image/cache/catalog/product/eco-lic-500x500.jpg"
-    ]
-  },
-  {
-    name: "Thuc pham chuc nang",
-    price: 100,
-    description: "Thuc pham chuc nang khong phai la thuoc, khong thay the thuoc chua benh.",
-    img:[
-      "https://ecogreen.com.vn/image/cache/catalog/product/eco-lic-500x500.jpg",
-      "https://ecogreen.com.vn/image/cache/catalog/product/eco-lic-500x500.jpg",
-      "https://ecogreen.com.vn/image/cache/catalog/product/eco-lic-500x500.jpg"
-    ]
-  }
-]
+import { useRouteMatch } from 'react-router-dom'
+
+import { useSelector } from 'react-redux'
 
 const Main = ({
   collapsed,
@@ -101,6 +26,16 @@ const Main = ({
   handleCollapsedChange,
 }) => {
   const intl = useIntl();
+
+  const matchDetail = useRouteMatch('/product/:id')
+
+  const products = useSelector(state => state.product)
+  let productDetail
+
+  if (matchDetail) {
+    productDetail = products.find(product => product._id === Number(matchDetail.params.id))
+  }
+
   return (
     <main>
       <div className="btn-toggle" onClick={() => handleToggleSidebar(true)}>
@@ -108,7 +43,7 @@ const Main = ({
       </div>
       <header>
         <h1>
-          <img style={{borderRadius:"50%"}} width={80} src={reactLogo} alt="react logo" /> {intl.formatMessage({ id: 'title' })}
+          <img style={{ borderRadius: "50%" }} width={80} src={reactLogo} alt="react logo" /> {intl.formatMessage({ id: 'title' })}
         </h1>
         <p>{intl.formatMessage({ id: 'description' })}</p>
         <div className="social-bagdes flex-start">
@@ -116,6 +51,7 @@ const Main = ({
           <a target="_blank" rel="noopener noreferrer" href="https://facebook.com" ><FloadButton size="small" color="primary" icon={<FaFacebookF />} /></a>
         </div>
       </header>
+
       <div className="block ">
         <Switch
           height={16}
@@ -130,31 +66,41 @@ const Main = ({
         <span> {intl.formatMessage({ id: 'collapsed' })}</span>
       </div>
 
+      <Slide />
+      <br />
+
       <SwitchRoute>
-        <Route path='/product/:id'>
-          <Detail product={products[0]} />
+        <Route path='/cart'>
+          <Cart />
         </Route>
+
+        <Route path='/product/:id'>
+          <Detail product={productDetail} />
+        </Route>
+
         <Route path="/">
           <div className=" margin-bottom-50 border">
             <div className="chude margin-bottom-10 flex-around">
               <div className="flex-start">
-                <MdNewReleases />&nbsp;Sản phẩm mới
+                <MdNewReleases />&nbsp;Hàng mới về
               </div>
               <div>
-                <a style={{color:"#FFFFFF"}} href="#">Xem tất cả</a>
+                <a style={{ color: "#FFFFFF" }} href="#">Xem tất cả</a>
               </div>
             </div>
             <div>
               <Carousel products={products} />
             </div>
           </div>
+
+
           <div className="border">
             <div className="chude margin-bottom-10 flex-around ">
               <div className="flex-start">
                 <BsFillPeopleFill />&nbsp;Sản phẩm phổ biến
               </div>
               <div>
-                <a style={{color:"#FFFFFF"}} href="#">Xem tất cả</a>
+                <a style={{ color: "#FFFFFF" }} href="#">Xem tất cả</a>
               </div>
             </div>
             <div>
@@ -165,8 +111,8 @@ const Main = ({
       </SwitchRoute>
 
       <Feedback />
- 
-      <footer>
+      <Footer />
+      {/* <footer>
         <small>
           © 2020 made with <FaHeart style={{ color: 'red' }} /> by -{' '}
           <a target="_blank" rel="noopener noreferrer" href="https://webhiendai.net">
@@ -177,14 +123,14 @@ const Main = ({
         <div className="social-bagdes">
           <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer">
             <img
-              style={{borderRadius:"50%"}}
+              style={{ borderRadius: "50%" }}
               width="20px"
               alt="Fanpage Facebook"
               src="https://www.facebook.com/images/fb_icon_325x325.png"
             />
           </a>
         </div>
-      </footer>
+      </footer> */}
     </main>
   );
 };

@@ -13,11 +13,11 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function FloatingActionButtons({color,icon,size}) {
+export default function FloatingActionButtons({color,icon,size,onClick}) {
     const classes = useStyles();
 
     return (
-        <div className={classes.root}>
+        <div className={classes.root} onClick={onClick}>
             <Fab color={color} aria-label="add" size={size}>
                 {icon}
             </Fab>

@@ -9,13 +9,20 @@ import {
   SidebarFooter,
   SidebarContent,
 } from 'react-pro-sidebar';
-import {  FaGem, FaList, FaGithub, FaHeart } from 'react-icons/fa';
-import { AiOutlineHome,AiOutlineShoppingCart } from 'react-icons/ai'
+import { FaList, FaGithub } from 'react-icons/fa';
+import { AiOutlineHome, AiOutlineShoppingCart } from 'react-icons/ai'
+
+import { Link } from 'react-router-dom'
 
 import sidebarBg from './assets/bg1.jpg';
 
+import { useSelector } from 'react-redux'
+
 const Aside = ({ image, collapsed, rtl, toggled, handleToggleSidebar }) => {
   const intl = useIntl();
+  const numberCart = useSelector(state => state.cart.length)
+  const danhmuc = useSelector(state => state.danhmuc)
+
   return (
     <ProSidebar
       image={image ? sidebarBg : false}
@@ -46,28 +53,25 @@ const Aside = ({ image, collapsed, rtl, toggled, handleToggleSidebar }) => {
         <Menu iconShape="circle">
           <MenuItem
             icon={<AiOutlineHome />}
-            // suffix={<span className="badge red">{intl.formatMessage({ id: 'new' })}</span>}
+          // suffix={<span className="badge red">{intl.formatMessage({ id: 'new' })}</span>}
           >
-            {intl.formatMessage({ id: 'dashboard' })}
+            <Link to='/'>{intl.formatMessage({ id: 'dashboard' })}</Link>
           </MenuItem>
-          <MenuItem icon={<FaGem />}> {intl.formatMessage({ id: 'components' })}</MenuItem>
-        </Menu>
-        <Menu iconShape="circle">
           <SubMenu
-            suffix={<span className="badge yellow">3</span>}
+            suffix={<span className="badge yellow">{danhmuc.length}</span>}
             title={intl.formatMessage({ id: 'multiLevel' })}
             icon={<FaList />}
           >
-            <MenuItem>{intl.formatMessage({ id: 'submenu' })} 1</MenuItem>
-            <MenuItem>{intl.formatMessage({ id: 'submenu' })} 2</MenuItem>
-            <MenuItem>{intl.formatMessage({ id: 'submenu' })} 3</MenuItem>
+            {danhmuc.map((d,key) => <MenuItem key={key}><Link to={'/danhmuc/'+d._id}>{d.name}</Link></MenuItem>)}
           </SubMenu>
           <MenuItem
-            prefix={<span className="badge red">3</span>}
+            prefix={<span className="badge red">{numberCart}</span>}
             title={intl.formatMessage({ id: 'withPrefix' })}
             icon={<AiOutlineShoppingCart />}
           >
-            {intl.formatMessage({ id: 'withPrefix' })}
+            <Link to='/cart'>
+              {intl.formatMessage({ id: 'withPrefix' })}
+            </Link>
           </MenuItem>
           {/* <SubMenu
 
