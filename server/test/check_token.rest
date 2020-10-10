@@ -1,0 +1,3 @@
+post http://localhost:3001/api/checktoken
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWRtaW4iLCJpYXQiOjE2MDIzNDYwMDF9.iyoiU_IYu_Xy5b8n_GiCXQ0wdI0pG-TCwhG6310PN_U
+

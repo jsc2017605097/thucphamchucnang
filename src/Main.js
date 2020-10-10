@@ -66,9 +66,6 @@ const Main = ({
         <span> {intl.formatMessage({ id: 'collapsed' })}</span>
       </div>
 
-      <Slide />
-      <br />
-
       <SwitchRoute>
         <Route path='/cart'>
           <Cart />
@@ -79,6 +76,9 @@ const Main = ({
         </Route>
 
         <Route path="/">
+          <Slide />
+          <br />
+
           <div className=" margin-bottom-50 border">
             <div className="chude margin-bottom-10 flex-around">
               <div className="flex-start">
