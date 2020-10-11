@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import Loading from '../../components/loading'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import URL_SERVER from '../../url_server'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -27,7 +28,7 @@ export default function Chips(props) {
         if (check) {
             axios({
                 method: "DELETE",
-                url: "/api/category/" + id,
+                url: URL_SERVER + "/api/category/" + id,
                 headers: {
                     "Authorization": window.localStorage.getItem("token")
                 }

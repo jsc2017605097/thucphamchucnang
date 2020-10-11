@@ -10,4 +10,14 @@ route.post('/', async (req, res, next) => {
     return res.status(200).json(category_saved)
 })
 
+route.get('/', async (req, res) => {
+    const category = await model_category.find({})
+    return res.status(200).json(category)
+})
+
+route.delete('/:id', async (req, res) => {
+    const category_deleted = await model_category.findByIdAndRemove(req.params.id)
+    return res.status(200).json(category_deleted)
+})
+
 module.exports = route

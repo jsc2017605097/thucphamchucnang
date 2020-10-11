@@ -4,7 +4,10 @@ const app = express()
 require('express-async-errors')
 require('dotenv').config()
 
+const cors = require('cors')
+
 app.use(express.json())
+app.use(cors())
 
 const mongoose = require('mongoose')
 

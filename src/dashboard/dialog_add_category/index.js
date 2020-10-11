@@ -12,7 +12,8 @@ import ButtonFloatingAdd from '../../components/button_float'
 import { Form, FormGroup, Label, Input } from 'reactstrap'
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
-import {AiFillFolderAdd} from 'react-icons/ai'
+import { AiFillFolderAdd } from 'react-icons/ai'
+import URL_SERVER from '../../url_server'
 
 const useStyles = makeStyles((theme) => ({
     appBar: {
@@ -46,7 +47,7 @@ export default function FullScreenDialog() {
         event.preventDefault()
         axios({
             method: "POST",
-            url: "/api/category",
+            url: URL_SERVER + "/api/category",
             data: { name: danhmuc },
             headers: {
                 "Authorization": window.localStorage.getItem("token")
