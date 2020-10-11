@@ -21,7 +21,7 @@ import { useSelector } from 'react-redux'
 const Aside = ({ image, collapsed, rtl, toggled, handleToggleSidebar }) => {
   const intl = useIntl();
   const numberCart = useSelector(state => state.cart.length)
-  const danhmuc = useSelector(state => state.danhmuc)
+  const category = useSelector(state => state.category)
 
   return (
     <ProSidebar
@@ -58,11 +58,11 @@ const Aside = ({ image, collapsed, rtl, toggled, handleToggleSidebar }) => {
             <Link to='/'>{intl.formatMessage({ id: 'dashboard' })}</Link>
           </MenuItem>
           <SubMenu
-            suffix={<span className="badge yellow">{danhmuc.length}</span>}
+            suffix={<span className="badge yellow">{category.length}</span>}
             title={intl.formatMessage({ id: 'multiLevel' })}
             icon={<FaList />}
           >
-            {danhmuc.map((d,key) => <MenuItem key={key}><Link to={'/danhmuc/'+d._id}>{d.name}</Link></MenuItem>)}
+            {category.map((d,key) => <MenuItem key={key}><Link to={'/category/'+d._id}>{d.name}</Link></MenuItem>)}
           </SubMenu>
           <MenuItem
             prefix={<span className="badge red">{numberCart}</span>}

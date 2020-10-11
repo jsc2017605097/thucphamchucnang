@@ -16,11 +16,13 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 
 const route_user = require('./controller/user')
 
+app.use('/api/category',require('./controller/category'))
 app.use('/api/user', route_user)
 app.post('/api/login', require('./controller/login'))
 app.use(require('./middleware/error'))
 app.post('/api/checktoken', require('./middleware/check_token'), (req, res) => {
     res.status(200).json({ user: req.decode_token.name })
 })
+
 const PORT = process.env.PORT || 3001
 app.listen(PORT, () => console.log("Server started with " + PORT))

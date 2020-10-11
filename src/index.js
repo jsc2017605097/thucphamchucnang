@@ -14,7 +14,7 @@ import danhmucReducer from './reducer/danhmuc'
 
 const reducer = combineReducers({
   product:productReducer,
-  danhmuc:danhmucReducer,
+  category:danhmucReducer,
   cart:cartReducer
 })
 const store = createStore(reducer,composeWithDevTools())
