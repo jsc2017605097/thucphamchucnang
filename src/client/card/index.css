@@ -1,3 +1,7 @@
 .myCard{
     position: relative;
 }
+.cardChildren{
+    height: 245px !important;
+    overflow: auto;
+}

@@ -9,6 +9,10 @@ import { Switch, Route } from 'react-router-dom'
 import axios from 'axios'
 import URL_SERVER from './url_server'
 import { useDispatch } from 'react-redux'
+import Login from './login'
+
+import Authentication from './Authentication'
+const ProtectToDashboard = Authentication(Dashboard)
 
 function App() {
   const [locale, setLocale] = useState('en');
@@ -18,13 +22,28 @@ function App() {
     axios({
       method: "GET",
       url: URL_SERVER + '/api/category'
-    }).then(res => dispatch({ type: "INIT_CATEGORY", data: res.data }))
+    }).then(res => {
+      dispatch({ type: "INIT_CATEGORY", data: res.data })
+    })
 
-  }, [])
+    axios({
+      method: "get",
+      url: "/api/product"
+    }).then(res => {
+      dispatch({ type: "INIT_PRODUCT", data: res.data })
+      dispatch({ type: "GET_PRODUCT_TRUE" })
+
+    })
+  }, [dispatch])
+
+
   return (
     <Switch>
       <Route path='/dashboard'>
-        <Dashboard />
+        <ProtectToDashboard />
+      </Route>
+      <Route path='/login'>
+        <Login />
       </Route>
       <Route path='/'>
         <IntlProvider locale={locale} messages={messages[locale]}>

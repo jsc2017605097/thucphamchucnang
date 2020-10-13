@@ -21,7 +21,7 @@ const login = async (req, res, next) => {
         name: user.name
     }
     const token = jwt.sign(user_for_token, process.env.SECRET)
-    return res.status(200).json({ message: "Đăng nhập thành công!",token })
+    return res.status(200).json(token)
 }
 
 module.exports = login

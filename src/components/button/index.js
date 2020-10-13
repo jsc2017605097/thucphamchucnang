@@ -12,7 +12,7 @@ export default function ContainedButtons({ size, color, text, onClick }) {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <Button size={size} color={color} variant="contained">
+            <Button size={size} color={color} onClick={onClick} variant="contained">
                 {text}
             </Button>
         </div>

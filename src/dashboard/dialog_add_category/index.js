@@ -82,7 +82,7 @@ export default function FullScreenDialog() {
                         </Button>
                     </Toolbar>
                 </AppBar>
-                <Form className='padding-20' onSubmit={createDanhmuc}>
+                <Form style={{padding:"20px"}} className='padding-20' onSubmit={createDanhmuc}>
                     <FormGroup >
                         <Label for="exampleEmail">Danh mục</Label>
                         <Input onChange={(event) => setDanhmuc(event.target.value)} type="text" id="exampleEmail" placeholder="Tên danh mục" />

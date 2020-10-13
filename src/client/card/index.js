@@ -65,7 +65,7 @@ export default function MediaCard({ product }) {
                 </Button>
 
             </CardActions>
-            { product.price < product.price_old && <Sale value={Math.ceil((product.price - product.price_old) / product.price_old * 100) + '%'} />}
+            { product.price < product.price_old && <Sale value={Math.ceil(((product.price - product.price_old) / product.price_old) * 100) + '%'} />}
         </Card>
     );
 }

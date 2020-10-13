@@ -12,16 +12,15 @@ import { useRouteMatch, Switch, Route } from 'react-router-dom'
 import DialogEditProduct from './dialog_edit_product'
 
 export default function Dashboard() {
-
-    // const [search, setSearch] = React.useState('')
-    // const match = useRouteMatch('/dashboard/category/:id')
-    // const products = useSelector(state => {
-    //     if (match) {
-    //         return state.product.filter(p => p.category === match.params.id)
-    //     }
-    //     return state.product
-    // })
-    // document.title = "VUA ĐỒ GỖ"
+    const [search, setSearch] = React.useState('')
+    const match = useRouteMatch('/dashboard/category/:id')
+    const products = useSelector(state => {
+        if (match) {
+            return state.product.filter(p => p.category === match.params.id)
+        }
+        return state.product
+    })
+    document.title = "Admin"
     return (
         <div>
             <div className='container'>
@@ -37,7 +36,7 @@ export default function Dashboard() {
             </div>
 
 
-            {/* <div className='container'>
+            <div className='container'>
                 <Switch>
                     <Route path='/dashboard/product/:id'>
                         <DialogEditProduct />
@@ -47,7 +46,7 @@ export default function Dashboard() {
                         <Product search={search} products={products} />
                     </Route>
                 </Switch>
-            </div> */}
+            </div>
            
            
             <div className='flex container' style={{ justifyContent: "flex-start", paddingTop: "10px" }}>

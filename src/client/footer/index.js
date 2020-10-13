@@ -2,20 +2,23 @@ import React from "react";
 import "./index.css";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import TwitterIcon from "@material-ui/icons/Twitter";
+import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 export default function Footer() {
+    const category = useSelector(state => state.category)
+
     return (
-        <footer className="site-footer">
+        <footer id='contact' className="site-footer">
             <div className="container">
                 <div className="row">
                     <div className="col-sm-12 col-md-6">
                         <h6>Về chúng tôi</h6>
                         <p className="text-justify"></p>
                         <div>
-                            Địa chỉ show room : Đường tỉnh 76, xã Hợp Tiến, huyện Mỹ Đức,
+                            Địa chỉ: xã Hợp Tiến, huyện Mỹ Đức,
                             thành phố Hà Nội.
             </div>
-                        <div>Xưởng sản xuất: xã Chuyên Mỹ, Phú Xuyên, Hà Nội</div>
                         <div style={{ color: "red" }}>
                             Số điện thoại: 0333.02.5556 hoặc 0334985555
             </div>
@@ -26,21 +29,22 @@ export default function Footer() {
                                 target="_blank"
                                 href="https://www.facebook.com/CuahangVuadogo"
                             >
-                                https://www.facebook.com/CuahangVuadogo
+                                https://www.facebook.com/
               </a>
                         </div>
                     </div>
                     <div className="col-xs-6 col-md-3">
                         <h6>Danh mục</h6>
                         <ul className="footer-links">
-                            <li>Danh muc 1</li>
-                            <li>Danh muc 2</li>
+                            {
+                                category.map((c,key) => <li key={key}><Link to={'/category/' + c._id}>{c.name}</Link></li>)
+                            }
                         </ul>
                     </div>
                     <div className="col-xs-6 col-md-3">
                         <h6>Tài khoản ngân hàng</h6>
                         <ul className="footer-links">
-                            <li>Chủ tài khoản: Đỗ Việt Dương</li>
+                            <li>Chủ tài khoản: Đặng Văn Phương</li>
                             <li>Agribank: 2205205283289</li>
                             <li>Ngân hàng ACB: 916288888</li>
                         </ul>
@@ -56,10 +60,10 @@ export default function Footer() {
               <a
                                 rel="noopener noreferrer"
                                 target="_blank"
-                                href="https://www.facebook.com/messages/t/100010462548931"
+                                href="https://webhiendai.net"
                             >
                                 {" "}
-                JSC
+                Webhiendai.net
               </a>
               .
             </p>

@@ -15,7 +15,9 @@ import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux'
-import {MdCreate} from 'react-icons/md'
+import { MdCreate } from 'react-icons/md'
+import ButtonDelete from '../../components/button_float'
+import { AiFillDelete } from 'react-icons/ai'
 
 const useStyles = makeStyles((theme) => ({
     appBar: {
@@ -37,8 +39,9 @@ export default function FullScreenDialog() {
 
     const [images, setImages] = React.useState([])
     const [name, setName] = React.useState('')
-    const [describtion, setDescribtion] = React.useState('')
+    const [description, setdescription] = React.useState('')
     const [price, setPrice] = React.useState(0)
+    const [price_old, set_price_old] = React.useState(0)
     const [category, setCategory] = React.useState('')
     const [content, setContent] = React.useState('')
 
@@ -48,15 +51,23 @@ export default function FullScreenDialog() {
         setOpen(true);
     };
 
+
+    function handleDeleteImg(link) {
+        const newImages = images.filter(img => img !== link)
+        setImages(newImages)
+    }
+
     const handleClose = () => {
         setOpen(false);
     };
 
     function handleSubmit(event) {
         event.preventDefault()
+        const link_image = images.map(ob => '/images/' + ob.name)
         const data = {
-            name, img: images, describtion, price, category, detail: content
+            name, img: link_image, description, price, category, detail: content, price_old
         }
+        handleImage();
         axios({
             method: "post",
             url: '/api/product',
@@ -67,19 +78,22 @@ export default function FullScreenDialog() {
         }).then(res => {
             setImages([])
             setName('')
-            setDescribtion('')
+            setdescription('')
             setPrice('')
             setCategory('')
             setContent('')
-            dispatch({ type: "ADD_PRODUCT_TO_PRODUCT", data: res.data })
+            dispatch({ type: "ADD_PRODUCT", data: res.data })
             window.alert("Thêm mới thành công!")
+            console.log(res.data)
         }).catch(error => window.alert(error.response.data))
+
+        console.log('submit...')
     }
 
-    function handleImage(event) {
+    function handleImage() {
         const formData = new FormData()
-        for (var key in event.target.files) {
-            formData.append("file" + key, event.target.files[key])
+        for (var key in images) {
+            formData.append("file" + key, images[key])
         }
         axios({
             method: "post",
@@ -88,7 +102,7 @@ export default function FullScreenDialog() {
             headers: {
                 "Authorization": window.localStorage.getItem("token")
             }
-        }).then(res => setImages([...images, ...res.data]))
+        }).then(res => console.log("Upload image successly!"))
     }
 
     return (
@@ -111,27 +125,36 @@ export default function FullScreenDialog() {
                         </Button>
                     </Toolbar>
                 </AppBar>
-                <Form className="padding-20">
+                <Form style={{ padding: "20px" }}>
                     <FormGroup>
                         <Label for="examplePassword">Tên sản phẩm</Label>
                         <Input value={name} required onChange={(event) => setName(event.target.value)} type="text" id="examplePassword" placeholder="Tên sản phẩm" />
                     </FormGroup>
                     <FormGroup>
                         <Label for="file">Ảnh sản phẩm</Label>
-                        <Input id='file' onChange={handleImage} accept="image/*" multiple type="file" name="file" />
+                        <Input id='file' onChange={event => setImages([...images, ...event.target.files])} accept="image/*" multiple type="file" name="file" />
                     </FormGroup>
                     <FormGroup>
                         {
-                            images.map((img, key) => <img key={key} alt="img" src={img} height="100px" style={{ margin: "10px 10px 0 0", boxShadow: "0.2px 0.2px 5px" }} />)
-                        }
+                            images.map((img, key) => <div key={key} style={{ margin: "10px 10px 0 0", boxShadow: "0.2px 0.2px 5px", display: "inline-block" }}>
+                                <img alt="img" src={URL.createObjectURL(img)} height="100px" />
+                                <div className="icon_delete_img">
+                                    <ButtonDelete color="secondary" size="small" icon={<AiFillDelete />} onClick={() => handleDeleteImg(img)} />
+                                </div>
+                            </div>
+                            )}
                     </FormGroup>
                     <FormGroup>
                         <Label for="mota">Mô tả ngắn</Label>
-                        <Input value={describtion} onChange={event => setDescribtion(event.target.value)} type="text" id="mota" placeholder="Mô tả ngắn sản phẩm" />
+                        <Input value={description} onChange={event => setdescription(event.target.value)} type="text" id="mota" placeholder="Mô tả ngắn sản phẩm" />
                     </FormGroup>
                     <FormGroup>
                         <Label for="gia">Giá</Label>
                         <Input value={price} onChange={event => setPrice(event.target.value)} type="text" id="gia" placeholder="VNĐ" />
+                    </FormGroup>
+                    <FormGroup>
+                        <Label for="gia">Giá cũ</Label>
+                        <Input value={price_old} onChange={event => set_price_old(event.target.value)} type="text" id="old" placeholder="VNĐ" />
                     </FormGroup>
                     <FormGroup>
                         <Label for="exampleSelect">Danh mục</Label>

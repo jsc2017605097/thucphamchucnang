@@ -5,7 +5,7 @@ import "react-image-gallery/styles/css/image-gallery.css";
 import { Row, Col } from "reactstrap";
 import Button from "@material-ui/core/Button";
 import { useHistory } from 'react-router-dom'
-
+import './index.css'
 import { useDispatch } from 'react-redux'
 
 export default function Detail({ product }) {

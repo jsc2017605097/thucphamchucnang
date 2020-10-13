@@ -26,7 +26,7 @@ export default function LetterAvatars() {
 
     return (
         <div className={classes.root} style={{ display: "flex", alignItems: "center", padding: "20px 0" }}>
-            <Avatar className={classes.orange}>VD</Avatar>&nbsp;{user.name}
+            <Avatar className={classes.orange}>AD</Avatar>&nbsp;{user.name}
         </div>
     );
 }

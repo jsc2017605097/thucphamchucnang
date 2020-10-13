@@ -10,7 +10,7 @@ import {
   SidebarContent,
 } from 'react-pro-sidebar';
 import { FaList, FaGithub } from 'react-icons/fa';
-import { AiOutlineHome, AiOutlineShoppingCart } from 'react-icons/ai'
+import { AiOutlineHome, AiOutlineShoppingCart,AiOutlineSearch,AiOutlineContacts } from 'react-icons/ai'
 
 import { Link } from 'react-router-dom'
 
@@ -72,6 +72,22 @@ const Aside = ({ image, collapsed, rtl, toggled, handleToggleSidebar }) => {
             <Link to='/cart'>
               {intl.formatMessage({ id: 'withPrefix' })}
             </Link>
+          </MenuItem>
+          <MenuItem
+            title="Tìm kiếm sản phẩm"
+            icon={<AiOutlineSearch />}
+          >
+            <Link to='/all'>
+              Tìm kiếm sản phẩm
+            </Link>
+          </MenuItem>
+          <MenuItem
+            title="Liên hệ"
+            icon={<AiOutlineContacts />}
+          >
+            <a href='#contact'>
+              Liên hệ
+            </a>
           </MenuItem>
           {/* <SubMenu
 

@@ -1,13 +1,14 @@
 {
   "name": "basic",
   "version": "0.1.0",
-  "homepage": "http://jsc2017605097.github.io/thucphamchucnang",
+  "homepage": "",
   "private": true,
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^23.0.0",
     "@ckeditor/ckeditor5-react": "^2.1.0",
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.56",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -19,6 +20,7 @@
     "react-icons": "^3.11.0",
     "react-image-gallery": "^1.0.8",
     "react-intl": "^4.5.2",
+    "react-items-carousel": "^2.8.0",
     "react-leaf-carousel": "^2.0.3",
     "react-pro-sidebar": "^0.4.4",
     "react-redux": "^7.2.1",
@@ -58,5 +60,5 @@
     "gh-pages": "^3.1.0",
     "node-sass": "^4.14.1"
   },
-  "proxy":"http://localhost:3001"
+  "proxy": "http://localhost:3001"
 }

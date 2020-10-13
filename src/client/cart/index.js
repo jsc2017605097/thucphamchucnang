@@ -20,7 +20,7 @@ import { AiOutlineShoppingCart, AiFillDelete } from "react-icons/ai";
 import Button from '../../components/button'
 import ButtonFloat from '../../components/button_float'
 
-
+import { useHistory } from 'react-router-dom'
 
 const useStyles = makeStyles({
     table: {
@@ -33,6 +33,7 @@ export default function SimpleTable() {
     const cart = useSelector((state) => state.cart);
     const dispatch = useDispatch();
 
+    const history = useHistory()
     // React.useEffect(() => {
     //   const y =
     //     document.getElementById("banner").scrollHeight +
@@ -44,44 +45,21 @@ export default function SimpleTable() {
     cart.forEach((p) => {
         total += p.price * p.soluong;
     });
+
+
     if (cart.length === 0) {
-        return (
-            <div className="giohang">
-                <div
-                    style={{
-                        background: "#3f51b5",
-                        color: "#FFFFFF",
-                        padding: "10px",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "space-between"
-                    }}
-                >
-                    <div
-                        style={{
-                            display: "flex",
-                            alignItems: "center"
-                        }}
-                    >
-                        <AiOutlineShoppingCart />
-                    &nbsp;
-                    <span>Giỏ hàng của bạn</span>
-                    </div>
-                    <div
-                        style={{
-                            display: "flex",
-                            alignItems: "center"
-                        }}
-                    >
-                        <FaHandPointRight />
-                    &nbsp;
-                    <Link to='/' className="tieptucmuahang">Trở về trang chủ</Link>
-                    </div>
-                </div>
-                "Giỏ hàng trống, hãy mua hàng ngay!"
-            </div>
-        );
+        window.alert("Giỏ hàng của bạn trống, chọn OK để tiếp tục mua hàng!")
+        history.push('/')
     }
+
+    function handleSubmit() {
+        const phone = window.prompt("Nhập số điện thoại.", '')
+        const name = window.prompt("Nhập tên của bạn.", '')
+        if (phone && name) {
+            console.log('dat hang thanh cong!')
+        }
+    }
+
     return (
         <div className="giohang">
             <div
@@ -140,7 +118,7 @@ export default function SimpleTable() {
                                 </TableCell>
                                 <TableCell align="left">{product.name}</TableCell>
                                 <TableCell align="left">
-                                    <a style={{ color: "blue !important" }}>Xem chi tiết</a>
+                                    <Link to={'/product/' + product._id} style={{ color: "blue !important" }}>Xem chi tiết</Link>
                                 </TableCell>
                                 <TableCell
                                     align="left"
@@ -154,7 +132,7 @@ export default function SimpleTable() {
                                     <SkipNextIcon
                                         className="pointer"
                                         onClick={() =>
-                                            dispatch({ type: "INCREASE_CART", data: product})
+                                            dispatch({ type: "INCREASE_CART", data: product })
                                         }
                                     />
                                 </TableCell>
@@ -169,7 +147,7 @@ export default function SimpleTable() {
                                 </TableCell>
                                 <TableCell align="left">
                                     <ButtonFloat
-                                        onClick={()=>dispatch({type:"DELETE_CART",data:product._id})}
+                                        onClick={() => dispatch({ type: "DELETE_CART", data: product._id })}
                                         color="secondary"
                                         size="small"
                                         icon={<AiFillDelete />} />
@@ -181,7 +159,7 @@ export default function SimpleTable() {
             </TableContainer>
             <div className="tong_tien_dat_hang" style={{ marginTop: "10px", color: "red" }}>
                 <span>Tổng tiền: {new Intl.NumberFormat().format(total)} VNĐ</span>
-                <Button size="small" text="Đặt hàng ngay" color="secondary" />
+                <Button onClick={handleSubmit} size="small" text="Đặt hàng ngay" color="secondary" />
             </div>
         </div>
     );

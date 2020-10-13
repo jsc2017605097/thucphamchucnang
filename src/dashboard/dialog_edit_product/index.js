@@ -18,8 +18,9 @@ export default function FullScreenDialog() {
     const dispatch = useDispatch()
     const [images, setImages] = React.useState([])
     const [name, setName] = React.useState('Đang tải...')
-    const [describtion, setDescribtion] = React.useState('Đang tải...')
+    const [description, setdescription] = React.useState('Đang tải...')
     const [price, setPrice] = React.useState('Đang tải...')
+    const [price_old, set_price_old] = React.useState('Đang tải...')
     const [category, setCategory] = React.useState('')
     const [content, setContent] = React.useState('Đang tải...')
     const [removedImg, setRemoveImg] = React.useState([])
@@ -28,8 +29,9 @@ export default function FullScreenDialog() {
         if (product) {
             setImages(product.img)
             setName(product.name)
-            setDescribtion(product.describtion)
+            setdescription(product.description)
             setPrice(product.price)
+            set_price_old(product.price_old)
             setCategory(product.category)
             setContent(product.detail)
         }
@@ -38,7 +40,7 @@ export default function FullScreenDialog() {
     function handleSubmit(event) {
         event.preventDefault()
         const data = {
-            name, img: images, describtion, price, category, detail: content
+            name, img: images, description, price, category, detail: content,price_old
         }
 
         axios({
@@ -58,7 +60,7 @@ export default function FullScreenDialog() {
                 "Authorization": window.localStorage.getItem("token")
             }
         }).then(res => {
-            dispatch({ type: "UPDATE_PRODUCT_AT_PRODUCT", data: res.data })
+            dispatch({ type: "UPDATE_PRODUCT", data: res.data })
             window.alert("Cập nhật thành công!")
         }).catch(error => window.alert(error.response.data))
     }
@@ -108,11 +110,15 @@ export default function FullScreenDialog() {
                 </FormGroup>
                 <FormGroup>
                     <Label for="mota">Mô tả ngắn</Label>
-                    <Input value={describtion} onChange={event => setDescribtion(event.target.value)} type="text" id="mota" placeholder="Mô tả ngắn sản phẩm" />
+                    <Input value={description} onChange={event => setdescription(event.target.value)} type="text" id="mota" placeholder="Mô tả ngắn sản phẩm" />
                 </FormGroup>
                 <FormGroup>
                     <Label for="gia">Giá</Label>
                     <Input value={price} onChange={event => setPrice(event.target.value)} type="number" id="gia" placeholder="VNĐ" />
+                </FormGroup>
+                <FormGroup>
+                    <Label for="gia">Giá Old</Label>
+                    <Input value={price_old} onChange={event => set_price_old(event.target.value)} type="number" id="gia_old" placeholder="VNĐ" />
                 </FormGroup>
                 <FormGroup>
                     <Label for="exampleSelect">Danh mục</Label>
