@@ -1,9 +1,9 @@
 body{
     font-family: 'Mulish', sans-serif !important;
 }
-.MuiCardMedia-root{
+/* .MuiCardMedia-root{
     background-size:contain !important;
-}
+} */
 .flex-start{
     display: flex;
     align-items: center;

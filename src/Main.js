@@ -85,7 +85,7 @@ const Main = ({
         <p>{data.description}</p>
         <div className="social-bagdes flex-start">
           <a href={data.phone} ><FloadButton size="small" color="secondary" icon={<FiPhoneCall />} /></a>
-          <a target="_blank" rel="noopener noreferrer" href={data.hasOwnProperty("social") && data.social.facebook } ><FloadButton size="small" color="primary" icon={<FaFacebookF />} /></a>
+          <a target="_blank" rel="noopener noreferrer" href={data.hasOwnProperty("social") ? data.social.facebook : '/'} ><FloadButton size="small" color="primary" icon={<FaFacebookF />} /></a>
         </div>
       </header>
 

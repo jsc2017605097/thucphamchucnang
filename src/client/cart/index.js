@@ -21,6 +21,7 @@ import Button from '../../components/button'
 import ButtonFloat from '../../components/button_float'
 
 import { useHistory } from 'react-router-dom'
+import axios from 'axios'
 
 const useStyles = makeStyles({
     table: {
@@ -53,10 +54,19 @@ export default function SimpleTable() {
     }
 
     function handleSubmit() {
-        const phone = window.prompt("Nhập số điện thoại.", '')
-        const name = window.prompt("Nhập tên của bạn.", '')
+        const name = window.prompt("Nhập tên của bạn.")
+        const phone = name ? window.prompt("Nhập số điện thoại.") : ''
+
         if (phone && name) {
-            console.log('dat hang thanh cong!')
+            axios({
+                method: "post",
+                url: "/api/email",
+                data: {
+                    name,
+                    phone,
+                    cart
+                }
+            }).then(result => window.alert('Đặt hàng thành công!'))
         }
     }
 

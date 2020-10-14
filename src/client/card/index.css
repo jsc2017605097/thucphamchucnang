@@ -1,5 +1,7 @@
 .myCard{
     position: relative;
+    border: 1px solid rgba(0,0,0,0.2);
+    padding:0 10px;
 }
 .cardChildren{
     height: 245px !important;
