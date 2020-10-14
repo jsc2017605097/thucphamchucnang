@@ -1,48 +1,55 @@
 {
-    "title":"Khỏe store",
-    "description":"Dành cho phân khúc cao cấp thích hàng xịn, chất lượng thực sự tốt, mẫu mã đẹp. Click để tìm hiểu danh mục thực phẩm chức năng nhập khẩu chính hãng bởi cty Sức Khỏe Vàng.",
-    "feedback":[
+    "title": "Khỏe store",
+    "social": {
+        "facebook": "https://facebook.com"
+    },
+    "phone": "tel:+84982839405",
+    "address": "Địa chỉ: xã Hợp Tiến, huyện Mỹ Đức, thành phố Hà Nội.",
+    "credit": [
+        "Chủ tài khoản: Đặng Văn Phương",
+        "TAgribank: 2205205283289",
+        "Ngân hàng ACB: 916288888"
+    ],
+    "description": "Dành cho phân khúc cao cấp thích hàng xịn, chất lượng thực sự tốt, mẫu mã đẹp. Click để tìm hiểu danh mục thực phẩm chức năng nhập khẩu chính hãng bởi cty Sức Khỏe Vàng.",
+    "feedback": [
         {
-            "name":"Nguyễn Đỗ Cường",
-            "img":"https://github.com/jsc2017605097/vuadogo/blob/master/client/src/maykhach/feedback/khach_hang1.jpg?raw=true",
-            "content":"Sản phẩm này rất tốt"
+            "name": "Nguyễn Đỗ Cường",
+            "img": "https://github.com/jsc2017605097/vuadogo/blob/master/client/src/maykhach/feedback/khach_hang1.jpg?raw=true",
+            "content": "Sản phẩm này rất tốt"
         },
         {
-            "name":"Vũ Lan Anh",
-            "img":"https://github.com/jsc2017605097/vuadogo/blob/master/client/src/maykhach/feedback/khach_hang1.jpg?raw=true",
-            "content":"Sản phẩm này rất tốt"
+            "name": "Vũ Lan Anh",
+            "img": "https://github.com/jsc2017605097/vuadogo/blob/master/client/src/maykhach/feedback/khach_hang1.jpg?raw=true",
+            "content": "Sản phẩm này rất tốt"
         },
         {
-            "name":"Đặng Văn Phương",
-            "img":"https://github.com/jsc2017605097/vuadogo/blob/master/client/src/maykhach/feedback/khach_hang1.jpg?raw=true",
-            "content":"Sản phẩm này rất tốt"
+            "name": "Đặng Văn Phương",
+            "img": "https://github.com/jsc2017605097/vuadogo/blob/master/client/src/maykhach/feedback/khach_hang1.jpg?raw=true",
+            "content": "Sản phẩm này rất tốt"
         },
         {
-            "name":"Đặng Văn Đông",
-            "img":"https://github.com/jsc2017605097/vuadogo/blob/master/client/src/maykhach/feedback/khach_hang1.jpg?raw=true",
-            "content":"Sản phẩm này rất tốt"
+            "name": "Đặng Văn Đông",
+            "img": "https://github.com/jsc2017605097/vuadogo/blob/master/client/src/maykhach/feedback/khach_hang1.jpg?raw=true",
+            "content": "Sản phẩm này rất tốt"
         }
     ],
-    "slide":[
+    "slide": [
         {
-            "src":
-                "data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15ba800aa1d%20text%20%7B%20fill%3A%23555%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15ba800aa1d%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22285.921875%22%20y%3D%22218.3%22%3EFirst%20slide%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E",
+            "src": "https://auco.vn/images/upload/Banner%20Web%20AU%20CO%207.png",
             "altText": "Slide 1",
             "caption": "",
             "header": "",
             "key": "1"
         },
         {
-            "src":
-                "data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15ba800aa20%20text%20%7B%20fill%3A%23444%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15ba800aa20%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23666%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22247.3203125%22%20y%3D%22218.3%22%3ESecond%20slide%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E",
+            "src": "https://auco.vn/images/upload/Banner%20Web%20AU%20CO%207.png",
             "altText": "Slide 2",
             "caption": "",
             "header": "",
             "key": "2"
         },
         {
-            "src":
-                "data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15ba800aa21%20text%20%7B%20fill%3A%23333%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15ba800aa21%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23555%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22277%22%20y%3D%22218.3%22%3EThird%20slide%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E",
+            "src": "https://auco.vn/images/upload/Banner%20Web%20AU%20CO%207.png",
             "altText": "Slide 3",
             "caption": "",
             "header": "",

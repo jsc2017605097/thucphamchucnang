@@ -12,8 +12,8 @@ import productReducer from './reducer/product'
 import cartReducer from './reducer/cart'
 import danhmucReducer from './reducer/danhmuc'
 
-const check_get_product = (state = false, action)=>{
-  switch(action.type){
+const check_get_product = (state = false, action) => {
+  switch (action.type) {
     case 'GET_PRODUCT_TRUE':
       return true
     default:
@@ -21,11 +21,22 @@ const check_get_product = (state = false, action)=>{
   }
 }
 
+const data_reducer = (state = {slide:[],feedback:[],credit:[],address:'',phone:"tel+"}, action) => {
+  switch (action.type) {
+    case 'INIT_DATA':
+      return action.data
+    default:
+      return state
+  }
+}
+
+
 const reducer = combineReducers({
   product: productReducer,
   category: danhmucReducer,
   cart: cartReducer,
-  check_get_product:check_get_product
+  check_get_product: check_get_product,
+  data: data_reducer
 })
 const store = createStore(reducer, composeWithDevTools())
 

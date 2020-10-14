@@ -6,7 +6,6 @@ import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
 import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
-import axios from 'axios'
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -16,11 +15,11 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-function SwipeableTextMobileStepper() {
+function SwipeableTextMobileStepper({feedback}) {
     const classes = useStyles();
     const theme = useTheme();
     const [activeStep, setActiveStep] = React.useState(0);
-    const [tutorialSteps, setTuto] = React.useState([])
+    const [tutorialSteps, setTuto] = React.useState(feedback)
     const maxSteps = tutorialSteps.length;
 
     const handleNext = () => {
@@ -36,12 +35,11 @@ function SwipeableTextMobileStepper() {
     };
 
     React.useEffect(() => {
-        axios({
-            method: "get",
-            url: "https://jsc2017605097.github.io/thucphamchucnang/data.json"
-        }).then(res => setTuto(res.data.feedback))
+        if(feedback.length > 0){
+            setTuto(feedback)
+        }
 
-    }, [])
+    }, [feedback])
     return (
         <div className={classes.root}>
             <AutoPlaySwipeableViews

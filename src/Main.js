@@ -35,7 +35,8 @@ const Main = ({
 
   const products = useSelector(state => state.product)
   const category = useSelector(state => state.category)
-
+  const data = useSelector(state => state.data)
+  
   let productDetail
   let product_for_category
   let name_category
@@ -71,6 +72,7 @@ const Main = ({
     return array;
   }
 
+
   return (
     <main>
       <div className="btn-toggle" onClick={() => handleToggleSidebar(true)}>
@@ -78,12 +80,12 @@ const Main = ({
       </div>
       <header>
         <h1>
-          <img style={{ borderRadius: "50%" }} width={80} src={reactLogo} alt="react logo" /> {intl.formatMessage({ id: 'title' })}
+          <Link style={{textDecoration:"none"}} to='/'><img style={{ borderRadius: "50%" }} width={80} src={reactLogo} alt="react logo" /> {data.title}</Link>
         </h1>
-        <p>{intl.formatMessage({ id: 'description' })}</p>
+        <p>{data.description}</p>
         <div className="social-bagdes flex-start">
-          <a href="tel:+84982839405" ><FloadButton size="small" color="secondary" icon={<FiPhoneCall />} /></a>
-          <a target="_blank" rel="noopener noreferrer" href="https://facebook.com" ><FloadButton size="small" color="primary" icon={<FaFacebookF />} /></a>
+          <a href={data.phone} ><FloadButton size="small" color="secondary" icon={<FiPhoneCall />} /></a>
+          <a target="_blank" rel="noopener noreferrer" href={data.hasOwnProperty("social") && data.social.facebook } ><FloadButton size="small" color="primary" icon={<FaFacebookF />} /></a>
         </div>
       </header>
 
@@ -155,9 +157,10 @@ const Main = ({
           </div>
         </Route>
       </SwitchRoute>
-
-      <Feedback />
-      <Footer />
+      <br />
+      <br />
+      <Feedback feedback={data.feedback} />
+      <Footer data={data} />
     </main>
   );
 };

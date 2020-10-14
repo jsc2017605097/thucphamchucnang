@@ -34,9 +34,15 @@ function App() {
       dispatch({ type: "GET_PRODUCT_TRUE" })
 
     })
+
+    axios({
+      method: "get",
+      url: "/data.json"
+    }).then(res => dispatch({ type: "INIT_DATA", data: res.data }))
+  
   }, [dispatch])
 
-
+  
   return (
     <Switch>
       <Route path='/dashboard'>

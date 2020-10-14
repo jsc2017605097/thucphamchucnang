@@ -2,7 +2,7 @@ import React from "react";
 import Customer from "./template";
 import PeopleIcon from "@material-ui/icons/People";
 
-export default function Feedback() {
+export default function Feedback({feedback}) {
     return (
         <div>
             <div
@@ -21,7 +21,7 @@ export default function Feedback() {
                 <span>Phản hồi của khách hàng</span>
             </div>
             <div style={{ marginTop: "20px" }}>
-                <Customer />
+                <Customer feedback={feedback} />
             </div>
         </div>
     );

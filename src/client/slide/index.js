@@ -1,20 +1,14 @@
 import React from "react";
 import { UncontrolledCarousel } from "reactstrap";
-import axios from 'axios'
+import {useSelector} from 'react-redux'
 
 
 const Example = () => {
-    const [items, setItem] = React.useState([])
-
+    const items = useSelector(state=>state.data.slide)
     React.useEffect(() => {
-        axios({
-            method: "get",
-            url: "https://jsc2017605097.github.io/thucphamchucnang/data.json",
-        }).then(res => {
-            setItem(res.data.slide)
-        })
+        window.document.title="Thực phẩm chức năng"
     }, [])
-    
+
     return <UncontrolledCarousel items={items} />
 };
 
