@@ -26,9 +26,9 @@ export default function Footer({ data }) {
                             <a
                                 rel="noopener noreferrer"
                                 target="_blank"
-                                href={data.facebook}
+                                href={data.social.facebook}
                             >
-                                {data.facebook}
+                                {data.social.facebook}
                             </a>
                         </div>
                     </div>

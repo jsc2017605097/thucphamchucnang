@@ -1,8 +1,9 @@
 {
-    "title": "Khỏe store",
+    "title": "KHOESTORE.COM",
     "social": {
         "facebook": "https://facebook.com"
     },
+    "logo":"http://localhost:3001/logo.png",
     "phone": "tel:+84982839405",
     "address": "Địa chỉ: xã Hợp Tiến, huyện Mỹ Đức, thành phố Hà Nội.",
     "credit": [

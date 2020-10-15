@@ -5,6 +5,8 @@ import { AiFillFolderOpen } from 'react-icons/ai'
 import Pagination from '../../components/pagination'
 import Search from '../../components/search'
 import Alert from '@material-ui/lab/Alert'
+import {Link} from 'react-router-dom'
+import './index.css'
 
 export default function ListCard({ products, name_category }) {
 
@@ -12,6 +14,9 @@ export default function ListCard({ products, name_category }) {
     const [search, set_search] = React.useState('')
     const [tranghientai, setTranghientai] = React.useState(1)
 
+    React.useEffect(()=>{
+        window.document.title="Khoestore.com"
+    },[])
 
     let sobaiviet1trang = 12
     if (window.screen.width <= 768) {
@@ -29,7 +34,10 @@ export default function ListCard({ products, name_category }) {
         <div>
             <div className="chude margin-bottom-10 flex-around">
                 <div className="flex-start">
-                    <AiFillFolderOpen />&nbsp;{name_category}
+                    <AiFillFolderOpen />&nbsp;
+                    <Link to='/'>Trang chủ /</Link>
+                    &nbsp;
+                    {name_category}
                 </div>
             </div>
             <Search setSearch={set_search} />

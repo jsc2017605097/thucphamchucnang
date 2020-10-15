@@ -8,7 +8,7 @@ const Example = () => {
     React.useEffect(() => {
         window.document.title="Thực phẩm chức năng"
     }, [])
-
+ 
     return <UncontrolledCarousel items={items} />
 };
 

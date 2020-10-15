@@ -21,7 +21,7 @@ const check_get_product = (state = false, action) => {
   }
 }
 
-const data_reducer = (state = {slide:[],feedback:[],credit:[],address:'',phone:"tel+"}, action) => {
+const data_reducer = (state = {slide:[],social:{facebook:''},feedback:[],credit:[],address:'',phone:"tel+"}, action) => {
   switch (action.type) {
     case 'INIT_DATA':
       return action.data

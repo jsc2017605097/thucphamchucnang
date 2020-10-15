@@ -2,7 +2,6 @@ import React from 'react';
 import { useIntl } from 'react-intl';
 import Switch from 'react-switch';
 import { FaBars, FaFacebookF } from 'react-icons/fa';
-import reactLogo from './images/logo.png';
 import { Switch as SwitchRoute, Route } from 'react-router-dom'
 import Carousel from './client/carousel'
 import { MdNewReleases } from 'react-icons/md'
@@ -36,7 +35,7 @@ const Main = ({
   const products = useSelector(state => state.product)
   const category = useSelector(state => state.category)
   const data = useSelector(state => state.data)
-  
+
   let productDetail
   let product_for_category
   let name_category
@@ -79,8 +78,8 @@ const Main = ({
         <FaBars />
       </div>
       <header>
-        <h1>
-          <Link style={{textDecoration:"none"}} to='/'><img style={{ borderRadius: "50%" }} width={80} src={reactLogo} alt="react logo" /> {data.title}</Link>
+        <h1 style={{ fontWeight: "bold" }}>
+          <Link style={{ textDecoration: "none" }} to='/'><img style={{ borderRadius: "50%" }} width={120} src={data.logo} alt={data.logo} /> {data.title}</Link>
         </h1>
         <p>{data.description}</p>
         <div className="social-bagdes flex-start">
